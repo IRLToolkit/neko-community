@@ -25,8 +25,8 @@ go get -v -t -d .
 # build server
 go build \
     -o bin/neko \
+    -gcflags=all="-N -l" \
     -ldflags "
-        -s -w
         -X 'm1k1o/neko.buildDate=${BUILD_TIME}'
         -X 'm1k1o/neko.gitCommit=${GIT_COMMIT}'
         -X 'm1k1o/neko.gitBranch=${GIT_BRANCH}'
