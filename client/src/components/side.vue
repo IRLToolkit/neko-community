@@ -2,7 +2,7 @@
   <aside class="neko-menu">
     <div class="tabs-container">
       <ul>
-        <li :class="{ active: tab === 'chat' }" @click.stop.prevent="change('chat')">
+        <li v-if="false" :class="{ active: tab === 'chat' }" @click.stop.prevent="change('chat')">
           <i class="fas fa-comment-alt" />
           <span>{{ $t('side.chat') }}</span>
         </li>
