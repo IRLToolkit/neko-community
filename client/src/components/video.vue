@@ -34,6 +34,7 @@
         <div ref="aspect" class="player-aspect" />
       </div>
       <ul v-if="!fullscreen && !hideControls" class="video-menu top">
+        <li v-if="extraControls"><i @click.stop.prevent="toggleSide" class="fas fa-bars toggle"></i></li>
         <li><i @click.stop.prevent="requestFullscreen" class="fas fa-expand"></i></li>
         <li v-if="admin"><i @click.stop.prevent="openResolution" class="fas fa-desktop"></i></li>
         <li v-if="!implicitHosting" :class="extraControls || 'extra-control'">
@@ -598,6 +599,10 @@
 
     requestControl() {
       this.$accessor.remote.request()
+    }
+
+    toggleSide() {
+      this.$accessor.client.toggleSide()
     }
 
     requestFullscreen() {

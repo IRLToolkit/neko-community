@@ -31,7 +31,7 @@
           </div>
         </div>
       </main>
-      <neko-side v-if="!videoOnly && side" />
+      <neko-side v-if="side" />
       <neko-connect v-if="!connected" />
       <neko-about v-if="about" />
       <notifications
