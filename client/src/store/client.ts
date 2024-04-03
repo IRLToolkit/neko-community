@@ -5,7 +5,7 @@ export const namespaced = true
 
 export const state = () => ({
   side: get<boolean>('side', false),
-  tab: get<string>('tab', 'chat'),
+  tab: get<string>('tab', 'files'),
   about: false,
   about_page: '',
 })
