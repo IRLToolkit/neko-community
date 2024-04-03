@@ -199,6 +199,34 @@ func New(conf *config.Server, webSocketHandler types.WebSocketHandler, desktop t
 				logger.Warn().Err(err).Msg("failed to remove multipart form")
 			}
 		})
+
+		router.Delete("/file", func(w http.ResponseWriter, r *http.Request) {
+			password := r.URL.Query().Get("pwd")
+			isAuthorized, err := webSocketHandler.CanTransferFiles(password)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusForbidden)
+				return
+			}
+
+			if !isAuthorized {
+				http.Error(w, "bad authorization", http.StatusUnauthorized)
+				return
+			}
+
+			filename := r.URL.Query().Get("filename")
+			badChars, _ := regexp.MatchString(`(?m)\.\.(?:\/|$)`, filename)
+			if filename == "" || badChars {
+				http.Error(w, "bad filename", http.StatusBadRequest)
+				return
+			}
+
+			filePath := webSocketHandler.FileTransferPath(filename)
+			err = os.Remove(filePath)
+			if err != nil {
+				http.Error(w, "not found or unable to remove", http.StatusNotFound)
+				return
+			}
+		})
 	}
 
 	router.Get("/health", func(w http.ResponseWriter, r *http.Request) {
