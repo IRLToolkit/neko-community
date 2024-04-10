@@ -15,27 +15,6 @@
         </label>
       </li>
       <li>
-        <span>{{ $t('setting.autoplay') }}</span>
-        <label class="switch">
-          <input type="checkbox" v-model="autoplay" />
-          <span />
-        </label>
-      </li>
-      <li>
-        <span>{{ $t('setting.ignore_emotes') }}</span>
-        <label class="switch">
-          <input type="checkbox" v-model="ignore_emotes" />
-          <span />
-        </label>
-      </li>
-      <li>
-        <span>{{ $t('setting.chat_sound') }}</span>
-        <label class="switch">
-          <input type="checkbox" v-model="chat_sound" />
-          <span />
-        </label>
-      </li>
-      <li>
         <span>{{ $t('setting.keyboard_layout') }}</span>
         <label class="select">
           <select v-model="keyboard_layout">
@@ -61,7 +40,7 @@
           placeholder="rtmp://a.rtmp.youtube.com/live2/<stream-key>"
         />
       </li>
-      <li v-if="connected">
+      <li v-if="connected && false">
         <button @click.stop.prevent="logout">{{ $t('logout') }}</button>
       </li>
     </ul>
