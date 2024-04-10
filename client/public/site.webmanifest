@@ -1,6 +1,6 @@
 {
-    "name": "n.eko",
-    "short_name": "n.eko",
+    "name": "IRLToolkit Remote",
+    "short_name": "IRLTK Remote",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
