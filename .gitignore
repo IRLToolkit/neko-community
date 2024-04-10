@@ -33,3 +33,5 @@ bin
 
 # Environment files
 *.env
+
+neko_dist**
