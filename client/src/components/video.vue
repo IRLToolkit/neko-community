@@ -50,7 +50,7 @@
         </li>
         <li>
           <i
-            v-if="pip_available"
+            v-if="pip_available && false"
             @click.stop.prevent="requestPictureInPicture"
             v-tooltip="{ content: 'Picture-in-Picture', placement: 'left', offset: 5, boundariesElement: 'body' }"
             class="fas fa-external-link-alt"
